@@ -1,0 +1,19 @@
+nav {
+  margin-bottom: 25px;
+}
+
+.post-read {
+  float: right;
+}
+
+.post-date {
+  float: left;
+}
+
+.post {
+  margin-bottom: 25px;
+}
+
+.pagg {
+  margin: 0 auto;
+}

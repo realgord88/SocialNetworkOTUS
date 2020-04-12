@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-md-center">
+   {% if  'loggedin' in session %}
+      <div>
+            <h2>Добро пожаловать, {{ session['username'] }}!</h2>
+      </div>
+   {% else %}
+       <div>
+           <center>
+            <h2>Добро пожаловать в тестовую социальную сеть!</h2><br>
+            <h3>Авторизуйтесь или пройдите регистрацию</h3>
+           </center>
+      </div>
+   {% endif %}
+</div>
+{% endblock %}

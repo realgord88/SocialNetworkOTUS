@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+          <div class="col-sm">
+          <h2>Мой профиль</h2>
+          <br>
+            <ul>
+                {% for attribute in user_info %}
+                    <li><h5>{{ attribute }}: {{ user_info[attribute] }}</h5></li>
+                {% endfor %}
+            </ul>
+          </div>
+        <div class="col-sm">
+            <h2>Друзья</h2>
+            <br>
+            <ul>
+            {% for friend in friend_list %}
+                    <li><h5><a href="{{ url_for('user', username=friend) }}">{{ friend }}</a></h5></li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="col-sm">
+            <h2>Заявки в друзья</h2>
+            <br>
+            <ul>
+                {% for friend_request in friend_requests %}
+                    <li><h5><a href="{{ url_for('user', username=friend_request) }}">{{ friend_request }}</a></h5></li>
+                    <form action="" method="post">
+                        {{ form.csrf_token() }}
+                        <input type="submit" name="{{ friend_request }}" id="add_friend" value="Принять заявку" class="btn btn-dark btn-block">
+                        <input type="submit" name="{{ friend_request }}" id="skip_friend" value="Отказаться" class="btn btn-dark btn-block">
+                    </form>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
